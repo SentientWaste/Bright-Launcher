@@ -1,14 +1,13 @@
-﻿using Bright_Launcher.Classes.Datas;
-using Bright_Launcher.Classes.Datas.Messaging;
-using CommunityToolkit.Mvvm.Messaging;
-using MinecraftLaunch.Extensions;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text.Json;
-using System.Threading.Tasks;
+using System.Reflection;
+using System.Collections.Generic;
+using Bright_Launcher.Classes.Datas;
+using CommunityToolkit.Mvvm.Messaging;
+using Bright_Launcher.Classes.Datas.Messaging;
+using MinecraftLaunch.Utilities;
 
 namespace Bright_Launcher.Services.Setting {
     public class SettingService {
@@ -26,7 +25,8 @@ namespace Bright_Launcher.Services.Setting {
         private void Load() {
             if (File.Exists(DataFilePath)) {
                 string json = File.ReadAllText(DataFilePath);
-                Data = JsonSerializer.Deserialize<SettingData>(json)!;
+                Data = JsonSerializer.Deserialize<SettingData>(json, JsonConverterUtil
+                    .DefaultJsonConverterOptions)!;
             } else {
                 Save();
                 Data = new();

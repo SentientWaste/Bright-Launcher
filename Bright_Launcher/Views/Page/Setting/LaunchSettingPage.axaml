@@ -23,6 +23,7 @@
 						<ComboBox Width="250"
 		                          CornerRadius="10"
 		                          ItemsSource="{Binding Javas}"
+								  SelectedItem="{Binding ActiveJava}"
 		                          PlaceholderText="请选择一个合适的Java">
 							<ComboBox.ItemTemplate>
 								<DataTemplate>
@@ -44,7 +45,7 @@
 							CornerRadius="10"
 							HorizontalContentAlignment="Center"
 							Content="前往账户系统" 
-							Click="AccountP" 
+							Command="{Binding GoAccountPageCommand}"
 							Width="250" />
 				</WrapPanel>
 			</StackPanel>

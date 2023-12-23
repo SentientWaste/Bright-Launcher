@@ -12,9 +12,4 @@ public partial class LaunchSettingPage : UserControl {
         InitializeComponent();
         DataContext = App.ServiceProvider.GetService<LaunchSettingPageViewModel>();
     }
-
-
-    private void AccountP(object sender, RoutedEventArgs e) {
-        SettingPage.SP.FrameX.Content = new AccountSettingPage();
-    }
 }

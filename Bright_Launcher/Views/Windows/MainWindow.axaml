@@ -10,7 +10,8 @@
 		ExtendClientAreaToDecorationsHint="True"
 		TransparencyLevelHint="AcrylicBlur"
         Background="Transparent"
-        Title="Bright">
+        Title="Bright"
+		xmlns:dialogHostAvalonia="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia">
 	<Window.Styles>
 		<Style Selector="Button.transitions">
 			<Setter Property="Transitions">
@@ -131,5 +132,11 @@
 				</Grid.Transitions>
 			</Grid>
 		</Grid>
+
+		<dialogHostAvalonia:DialogHost CloseOnClickAway="False"
+									   DialogMargin="16"
+							           dialogHostAvalonia:DialogHostStyle.CornerRadius="8"
+							           DisableOpeningAnimation="True"
+							           Identifier="dialogHost"/>
 	</Grid>
 </Window>

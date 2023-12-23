@@ -4,9 +4,11 @@ using Avalonia.Markup.Xaml;
 using Bright_Launcher.Services.Launch;
 using Bright_Launcher.Services.Setting;
 using Bright_Launcher.Services.UI;
+using Bright_Launcher.ViewModels.DialogContents;
 using Bright_Launcher.ViewModels.Pages;
 using Bright_Launcher.ViewModels.Pages.Setting;
 using Bright_Launcher.ViewModels.Windows;
+using Bright_Launcher.Views.DialogContent;
 using Bright_Launcher.Views.Pages;
 using Bright_Launcher.Views.Pages.Setting;
 using Microsoft.Extensions.DependencyInjection;
@@ -56,19 +58,25 @@ namespace Bright_Launcher {
             services.AddSingleton<MainWindow>();//由于MainWindow只有且只会有一个实例，因此采用单例而非瞬态
             services.AddTransient<LaunchPage>();
             services.AddTransient<ExpandPage>();
-            services.AddTransient<SettingPage>();
+            services.AddSingleton<SettingPage>();
             services.AddTransient<DownloadPage>();
+            services.AddTransient<LaunchSettingPage>();
+            services.AddTransient<AccountSettingPage>();
+            services.AddTransient<AuthenticateContent>();
 
             //ViewModels
             services.AddSingleton<MainWindowViewModel>();
             services.AddTransient<LaunchPageViewModel>();
             services.AddTransient<SettingPageViewModel>();
             services.AddTransient<LaunchSettingPageViewModel>();
+            services.AddTransient<AccountSettingPageViewModel>();
+            services.AddTransient<AuthenticateContentViewModel>();
         }
-
+        
         private static void ConfigureServices(IServiceCollection services) {
             services.AddSingleton<JavaService>();
             services.AddSingleton<GameService>();
+            services.AddSingleton<DialogService>();
             services.AddSingleton<LaunchService>();
             services.AddSingleton<SettingService>();
             services.AddSingleton<NavigationService>();

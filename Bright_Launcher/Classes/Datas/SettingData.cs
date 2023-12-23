@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace Bright_Launcher.Classes.Datas {
     public record SettingData {
-        public string JavaPath { get; set; }
+        public JavaEntry ActiveJava { get; set; }
 
         public ObservableCollection<JavaEntry> Javas { get; set; }
 

@@ -14,7 +14,7 @@ namespace Bright_Launcher.Services.Launch {
 
         public GameService(SettingService settingService) { 
             _settingService = settingService;
-            GameResolver = new GameResolver("C:\\Users\\w\\Desktop\\temp\\.minecraft");
+            GameResolver = new GameResolver(".minecraft");
         }
 
         public IEnumerable<GameEntry> Load() {

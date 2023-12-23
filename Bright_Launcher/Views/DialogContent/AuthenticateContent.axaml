@@ -1,0 +1,25 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Bright_Launcher.Views.DialogContent.AuthenticateContent"
+			 xmlns:vm="using:Bright_Launcher.ViewModels.DialogContents"
+			 x:DataType="vm:AuthenticateContentViewModel">
+	<WrapPanel Orientation="Vertical">
+		<TextBox MinWidth="200"
+				 Watermark="用户名"
+				 Text="{Binding UserName}"/>
+
+		<StackPanel Spacing="8"
+					Margin="0 8 0 0" 
+					Orientation="Horizontal"
+					HorizontalAlignment="Right">
+			<Button Content="取消"
+					Command="{Binding CancelCommand}"/>
+
+			<Button Content="确定"
+					Command="{Binding AuthenticateCommand}"/>
+		</StackPanel>
+	</WrapPanel>
+</UserControl>

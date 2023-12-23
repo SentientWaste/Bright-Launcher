@@ -5,6 +5,7 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 			 xmlns:vm="using:Bright_Launcher.ViewModels.Pages"
 			 x:DataType="vm:LaunchPageViewModel"
+			 xmlns:mlma="using:MinecraftLaunch.Classes.Models.Auth"
              x:Class="Bright_Launcher.Views.Pages.LaunchPage">
 	<Grid>
 		<Grid.RowDefinitions>
@@ -13,11 +14,24 @@
 		</Grid.RowDefinitions>
 		<Border BoxShadow="0 2 20 0 #66000000" Background="#DBDBDB" Grid.Row="1">
 			<WrapPanel Margin="10 10 10 10" VerticalAlignment="Center" HorizontalAlignment="Right">
-				<ComboBox PlaceholderText="游戏账户" 
-						  x:Name="User" 
-						  CornerRadius="10" 
-						  Height="60" 
-						  Width="200"/>
+				<ComboBox PlaceholderText="游戏账户"
+						  x:Name="User"
+						  CornerRadius="10"
+						  Height="60"
+						  Width="200"
+						  SelectedItem="{Binding Account}"
+						  ItemsSource="{Binding Accounts}">
+					<ComboBox.ItemTemplate>
+						<DataTemplate DataType="mlma:Account">
+							<StackPanel>
+								<TextBlock Text="{Binding Name}"/>
+
+								<TextBlock FontSize="12"
+										   Text="{Binding Type}"/>
+							</StackPanel>
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
+				</ComboBox>
 
 				<ComboBox PlaceholderText="游戏版本"
 						  x:Name="Versions"
